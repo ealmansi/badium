@@ -1,0 +1,14 @@
+{
+  "name": "toptal-badium",
+  "version": "0.1.0",
+  "description": "Toptal Test Project: Badium (BAD) ERC20 Token.",
+  "main": "index.js",
+  "repository": "https://git.toptal.com/eluttner/emilio",
+  "author": "Emilio Almansi",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "ganache-cli": "6.4.3",
+    "truffle": "5.0.17"
+  }
+}
