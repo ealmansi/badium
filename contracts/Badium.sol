@@ -132,7 +132,10 @@ contract Badium {
   }
 
   /**
-   * @dev Transfer.
+   * @dev Transfers the given amount of BAD tokens belonging to the sender to a pre-approved
+   * receiver ('to').
+   * @param to Receiver's address.
+   * @param amount Amount in BAD to transfer.
    * @return True on success, else false.
    */
   function transfer (address to, uint256 amount) public returns (bool) {
@@ -143,7 +146,11 @@ contract Badium {
   }
 
   /**
-   * @dev TransferFrom.
+   * @dev Transfers the given amount of BAD tokens belonging to the given token holder ('from') to
+   * a pre-approved receiver ('to').
+   * @param from Token holder's address.
+   * @param to Receiver's address.
+   * @param amount Amount in BAD to transfer.
    * @return True on success, else false.
    */
   function transferFrom (address from, address to, uint256 amount) public returns (bool) {
@@ -166,7 +173,10 @@ contract Badium {
   }
 
   /**
-   * @dev Approve.
+   * @dev Approves an allowance for the given spender, allowing this address to move up to the given
+   * amount of BAD tokens belonging to the sender.
+   * @param spender Address of the spender.
+   * @param amount Amount in BAD which the spender will be able to transfer from sender's tokens.
    * @return True on success, else false.
    */
   function approve (address spender, uint256 amount) public returns (bool) {
@@ -178,7 +188,10 @@ contract Badium {
   }
 
   /**
-   *
+   * @dev Retrieves the allowance approved by the given holder for the given spender.
+   * @param holder Address of the token holder.
+   * @param spender Address of the spender.
+   * @return The maximum amount that the spender is approved to transfer from the holder's tokens.
    */
   function allowance (address holder, address spender) public view returns (uint256) {
     return _allowances[_burnCount][holder][spender];

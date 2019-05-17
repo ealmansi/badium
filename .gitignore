@@ -1,3 +1,4 @@
 *.AppImage
 node_modules/
 build/
+.secret
