@@ -1,0 +1,113 @@
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+
+Migrations dry-run (simulation)
+===============================
+> Network name:    'ropsten-fork'
+> Network id:      3
+> Block gas limit: 0x7a1200
+
+
+1_initial_migration.js
+======================
+
+   Replacing 'Migrations'
+   ----------------------
+   > block number:        5652861
+   > block timestamp:     1558585865
+   > account:             0xDE7346C899c6a3F2CCCc46c09eDf680fEc99305C
+   > balance:             0.876307934
+   > gas used:            246393
+   > gas price:           2 gwei
+   > value sent:          0 ETH
+   > total cost:          0.000492786 ETH
+
+   -------------------------------------
+   > Total cost:         0.000492786 ETH
+
+
+2_badium.js
+===========
+
+   Replacing 'Badium'
+   ------------------
+   > block number:        5652863
+   > block timestamp:     1558585879
+   > account:             0xDE7346C899c6a3F2CCCc46c09eDf680fEc99305C
+   > balance:             0.871782242
+   > gas used:            2235823
+   > gas price:           2 gwei
+   > value sent:          0 ETH
+   > total cost:          0.004471646 ETH
+
+   -------------------------------------
+   > Total cost:         0.004471646 ETH
+
+
+Summary
+=======
+> Total deployments:   2
+> Final cost:          0.004964432 ETH
+
+
+Starting migrations...
+======================
+> Network name:    'ropsten'
+> Network id:      3
+> Block gas limit: 0x7a121d
+
+
+1_initial_migration.js
+======================
+
+   Replacing 'Migrations'
+   ----------------------
+   > transaction hash:    0xbb7fb23be6842147aa831c773fa556a28b64a5b41e9da33ddd5e91cca8187555
+   > Blocks: 0            Seconds: 5
+   > contract address:    0x3Ea88a2595c4c1E9A6aa3fCF5edCc54559a24009
+   > block number:        5652862
+   > block timestamp:     1558585894
+   > account:             0xDE7346C899c6a3F2CCCc46c09eDf680fEc99305C
+   > balance:             0.87157286
+   > gas used:            261393
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00522786 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00522786 ETH
+
+
+2_badium.js
+===========
+
+   Replacing 'Badium'
+   ------------------
+   > transaction hash:    0x5cc8ad570ea40ce64b194e2ea344847f12e5e87c74a6161eeb787e7134067dd1
+   > Blocks: 1            Seconds: 9
+   > contract address:    0x559Ae8874078cF95ED8d2aC80dCF2A24f70C1532
+   > block number:        5652866
+   > block timestamp:     1558585920
+   > account:             0xDE7346C899c6a3F2CCCc46c09eDf680fEc99305C
+   > balance:             0.82451594
+   > gas used:            2310823
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.04621646 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.04621646 ETH
+
+
+Summary
+=======
+> Total deployments:   2
+> Final cost:          0.05144432 ETH

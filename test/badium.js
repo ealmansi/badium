@@ -168,6 +168,20 @@ contract('Badium', () => {
     assert.strictEqual(web3.utils.fromWei(balance3), '0.11')
   })
 
+  it('should support burning tokens by the contract owner', async () => {
+    assert.ok(await instance.addReceiver(accounts[1]))
+    assert.ok(await instance.transfer(accounts[1], 100))
+    let totalSupply = await instance.totalSupply()
+    let balance = await instance.balanceOf(accounts[1])
+    assert.strictEqual(totalSupply.toNumber(), 10000000)
+    assert.strictEqual(balance.toNumber(), 100)
+    assert.ok(await instance.burn(accounts[1], 70))
+    totalSupply = await instance.totalSupply()
+    balance = await instance.balanceOf(accounts[1])
+    assert.strictEqual(totalSupply.toNumber(), 9999930)
+    assert.strictEqual(balance.toNumber(), 30)
+  })
+
   it('should support burning all tokens by the contract owner (1)', async () => {
     assert.ok(await instance.buy(1, { from: accounts[1], value: web3.utils.toWei('0.01') }))
     assert.ok(await instance.buy(1, { from: accounts[2], value: web3.utils.toWei('0.01') }))
@@ -187,7 +201,7 @@ contract('Badium', () => {
     assert.strictEqual(balance2.toNumber(), 1)
     assert.strictEqual(balance3.toNumber(), 1)
     assert.strictEqual(balance4.toNumber(), 1)
-    assert.ok(await instance.burn())
+    assert.ok(await instance.burnAll())
     totalSupply = await instance.totalSupply()
     balance0 = await instance.balanceOf(accounts[0])
     balance1 = await instance.balanceOf(accounts[1])
@@ -205,13 +219,13 @@ contract('Badium', () => {
   it('should support burning all tokens by the contract owner (2)', async () => {
     let totalSupply = await instance.totalSupply()
     assert.strictEqual(totalSupply.toNumber(), 10000000)
-    assert.ok(await instance.burn())
+    assert.ok(await instance.burnAll())
     totalSupply = await instance.totalSupply()
     assert.strictEqual(totalSupply.toNumber(), 0)
     await instance.mint(100)
     totalSupply = await instance.totalSupply()
     assert.strictEqual(totalSupply.toNumber(), 100)
-    assert.ok(await instance.burn())
+    assert.ok(await instance.burnAll())
     totalSupply = await instance.totalSupply()
     assert.strictEqual(totalSupply.toNumber(), 0)
   })
@@ -271,7 +285,7 @@ contract('Badium', () => {
     )
     await assertThrows(
       async () => {
-        await instance.burn({ from: accounts[1] })
+        await instance.burnAll({ from: accounts[1] })
       },
       'Badium: Unauthorized.'
     )

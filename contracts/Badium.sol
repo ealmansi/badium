@@ -246,10 +246,26 @@ contract Badium {
   }
 
   /**
-   * @dev Erases all issued tokens from existence.
+   * @dev Burns a certain amount of tokens from the given holder's balance.
+   * @param holder Address of the holder whose tokens will be burned.
+   * @param amount Amount of tokens to burn.
    * @return True on success, else false.
    */
-  function burn () public onlyOwner returns (bool) {
+  function burn (address holder, uint256 amount) public onlyOwner returns (bool) {
+    require(amount <= _totalSupply[_burnCount], "Badium: Insufficient total supply.");
+    _totalSupply[_burnCount] -= amount;
+
+    require(amount <= _balances[_burnCount][holder], "Badium: Insufficient balance.");
+    _balances[_burnCount][holder] -= amount;
+
+    return true;
+  }
+
+  /**
+   * @dev Burns all circulating tokens.
+   * @return True on success, else false.
+   */
+  function burnAll () public onlyOwner returns (bool) {
     require(1 <= UINT256_MAX - _burnCount, "Badium: Burn count limit exceeded.");
     _burnCount += 1;
 
